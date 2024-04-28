@@ -1,7 +1,7 @@
-/** 
+/**
  * The @gnome/assert provides Deno's @std/assert methods that
  * is more ergonomic and user-friendly.
- * 
+ *
  * The code comments comes from the original @std/assert module
  * and are under the MIT license and Deno copyright.
  *
@@ -9,6 +9,7 @@
  */
 
 import {
+    assert as assertTruthy,
     assertAlmostEquals,
     assertArrayIncludes,
     assertEquals,
@@ -27,7 +28,6 @@ import {
     assertStrictEquals,
     assertStringIncludes,
     assertThrows,
-    assert as assertTruthy,
     fail,
     unimplemented,
     unreachable,
@@ -261,7 +261,6 @@ export type Assertion = {
      */
     ok(expr: unknown, msg?: string): asserts expr;
 
-    
     /**
      * Make an assertion that `actual` and `expected` are almost equal numbers
      * through a given tolerance. It can be used to take into account IEEE-754
@@ -296,7 +295,7 @@ export type Assertion = {
      * assertFalse(true); // Throws
      * ```
      */
-    falsey(expr: unknown, msg?: string): asserts expr;
+    no(expr: unknown, msg?: string): asserts expr;
 
     /**
      * Make an assertion that actual includes expected. If not
@@ -329,7 +328,6 @@ export type Assertion = {
         expectedType: T,
         msg?: string,
     ): asserts actual is GetConstructorType<T>;
-
 
     /**
      * Make an assertion that `error` is an `Error`.
@@ -612,8 +610,6 @@ export const assert: Assertion = {
      */
     truthy: assertTruthy,
 
-
-
     /**
      * Make an assertion that `actual` and `expected` are almost equal numbers
      * through a given tolerance. It can be used to take into account IEEE-754
@@ -643,7 +639,7 @@ export const assert: Assertion = {
      * assertFalse(true); // Throws
      * ```
      */
-    falsey: assertFalse,
+    no: assertFalse,
 
     /**
      * Make an assertion that actual includes expected. If not
@@ -672,7 +668,6 @@ export const assert: Assertion = {
      * ```
      */
     instanceOf: assertInstanceOf,
-
 
     /**
      * Make an assertion that `error` is an `Error`.
@@ -763,7 +758,7 @@ export {
     assertArrayIncludes as arrayIncludes,
     assertEquals as equals,
     assertExists as exists,
-    assertFalse as falsey,
+    assertFalse as no,
     assertInstanceOf as instanceOf,
     assertIsError as isError,
     assertMatch as match,
@@ -776,7 +771,7 @@ export {
     assertStrictEquals as strictEquals,
     assertStringIncludes as stringIncludes,
     assertThrows as throws,
-    assertTruthy as truthy,
+    assertTruthy as ok,
     fail,
     unimplemented,
     unreachable,

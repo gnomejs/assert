@@ -1,6 +1,4 @@
-
 import * as assert from "./mod.ts";
-
 
 Deno.test("validate equality", () => {
     assert.equals(1, 1);
@@ -10,14 +8,13 @@ Deno.test("validate equality", () => {
 });
 
 Deno.test("validate truthy", () => {
-    assert.truthy(true);
-    assert.falsey(false);
+    assert.ok(true);
+    assert.no(false);
 });
 
 Deno.test("validate exists", () => {
     assert.exists("hello");
 });
-
 
 // test rejects
 Deno.test("validate rejects", async () => {

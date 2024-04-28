@@ -8,8 +8,7 @@
 
 ## Overview
 
-Assert wraps deno `@std/assert` to make the functions more
-ergonomic for testing.
+Assert wraps deno `@std/assert` to make the functions more ergonomic for testing.
 
 ## Mapping
 
@@ -45,14 +44,13 @@ The asserts are mapped to the follow:
 ## Basic Usage
 
 ```typescript
-import { assert, equals } from '@gnome/assert'
+import { assert, equals } from "@gnome/assert";
 
 assert.ok(null, "truthy condition was false");
 assert.equals(1, 1);
 
 // or import just the method
-equals(1, 1)
-
+equals(1, 1);
 ```
 
 [MIT License](./LICENSE.md)
